@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MasterTask_NT.Models.ClsUser>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table" style="border: thick double #000080" >
+        <tr>
+            <th style="border: thin groove #0033CC">
+                @Html.DisplayNameFor(model => model.Pass)
+            </th>
+            <th style="border: thin groove #0033CC">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="border: thin groove #0033CC">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td style="border: thin groove #0033CC">
+                @Html.DisplayFor(modelItem => item.Pass)
+            </td>
+            <td style="border: thin groove #0033CC">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td style="border: thin groove #0033CC">
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+
+
+</body>
+</html>
